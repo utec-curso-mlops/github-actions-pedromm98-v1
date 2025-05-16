@@ -1,0 +1,23 @@
+name: Model CI / CD
+on: workflow_dispatch
+jobs:
+  model-ci:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Get Code
+        uses: actions/checkout@v4
+      - name: Python Setup
+        uses: actions/setup-python
+        with:
+          python-version: 3.12
+      - name: Install Python Dependencies
+        run: |
+          python pip install --upgrade pip
+          python pip install -r requirements.txt
+      - name: Split Dataset
+        run: python src/0-split-dataset.py
+      - name: Preprocess train dataset
+        run: python 1-preprocess-dataset-train.py
+      - name: Preprocess test dataset
+        run: python 2-prepare-dataset-test.py
+
