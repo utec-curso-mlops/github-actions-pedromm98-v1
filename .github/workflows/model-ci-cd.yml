@@ -17,7 +17,9 @@ jobs:
       - name: Split Dataset
         run: python src/0-split-dataset.py
       - name: Preprocess train dataset
-        run: python 1-preprocess-dataset-train.py
-      - name: Preprocess test dataset
-        run: python 2-prepare-dataset-test.py
+        run: python src/1-preprocess-dataset-train.py
+      - name: Prepare test dataset
+        run: python src/2-prepare-dataset-test.py
+      - name: Build Model
+        run: echo "Build Model"
 
