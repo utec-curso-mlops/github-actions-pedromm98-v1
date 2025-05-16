@@ -12,8 +12,8 @@ jobs:
           python-version: 3.12
       - name: Install Python Dependencies
         run: |
-          python pip install --upgrade pip
-          python pip install -r requirements.txt
+          pip install --upgrade pip
+          pip install -r requirements.txt
       - name: Split Dataset
         run: python src/0-split-dataset.py
       - name: Preprocess train dataset
